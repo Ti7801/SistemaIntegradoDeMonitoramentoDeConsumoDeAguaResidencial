@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Visualizar Cliente</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+        <style>
+            tr { border: solid 1px;}
+            td { border: solid 1px; font-size: 20px;}
+            th { border: solid 1px;font-size: 20px;}
+            table{border: solid 1px; border-collapse: collapse;}
+        </style>
+    </head>
+    <body>
+        <footer>
+            <section class="footer-content-superior">
+                <nav class="dp-menu">
+                    <h1>Dados do Cliente</h1>
+                </nav>
+            </section>
+        </footer>
+        <br/>
+        <br/>
+        <br/>
+
+        <div id="conjunto">
+            <div class="formulario-detalhes-clientes">
+                <h2>Clientes</h2>
+                <table style="border: solid 1px; border-collapse: separate;">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cpf</th>
+                        <th>Nascimento</th>
+                        <th>Telefone</th>
+                        <th>Sexo</th>
+                        <th>Email</th>
+                    </tr>
+                        <tr>
+                            <td>{{nome}}</td>
+                            <td>{{cpf}}</td>
+                            <td>{{nascimento}}</td>
+                            <td>{{telefone}}</td>
+                            <td>{{sexo}}</td>
+                            <td>{{email}}</td>
+                        </tr>           
+                </table>
+            </div>  
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div class="formulario-detalhes-enderecos">    
+                <h2>Endereços</h2>
+
+                <table style="border: solid 1px; border-collapse: separate;">
+                    <tr>
+                        <th>Cidade</th>
+                        <th>Bairro</th>
+                        <th>Rua</th>
+                        <th>Numero</th>
+                        <th>Complemento</th>
+                        <th>CEP</th>
+                        <th>Consumo Global</th>
+                        <th>Consumo ultimo fatura</th>
+
+                    </tr>
+                    {% for  endereco in  enderecos %}
+                        <tr>
+                            <td>{{endereco.cidade}}</td>
+                            <td>{{endereco.bairro}}</td>
+                            <td>{{endereco.rua}}</td>
+                            <td>{{endereco.numero}}</td>
+                            <td>{{endereco.complemento}}</td>
+                            <td>{{endereco.cep}}</td>
+                            <td>{{endereco.consumo_total}}</td>
+                            <td>{{endereco.consumo_ultimo_mes}}</td>
+                        </tr>           
+                    {% endfor %}
+                </table>
+            </div>    
+            <br/>
+            <div class="botoes">
+                <input class="butao-reset-detalhes" type="reset" onclick="location.href= '{% url 'InterfaceWeb:listaClientes' %}'" value="Voltar para a lista">
+            <div>
+
+        <footer>
+            <section >
+            </section>
+                <section class="copyright">
+                    <span>&copy; 2022 - Consumo Residencial</span>
+                </section>
+        </footer> 
+
+    </body>
+</html>

@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitoramento do Consumo de  Água</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <!--whatsapp button-->
+  <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5583986663066&text=Olá, tire suas dúvidas aqui!" target="_blank">
+		<i class="fa fa-whatsapp"></i>
+  </a>
+	
+  <!-- navegation -->
+  <footer>
+    <section class="footer-content">
+      <nav class="dp-menu">
+          <ul>
+              <section class="address">
+                <h1 id="titulo">Monitoramento de Consumo de Água Residencial</h1>
+              </section>
+              <section class="about">
+                <li><a href="#">Cliente</a>
+                  <ul>
+                      <li><a href="{% url 'InterfaceWeb:criarCliente' %}">Criar Cliente</a></li>
+                      <li><a href="{% url 'InterfaceWeb:listaClientes' %}">Listar Cliente</a></li>
+                  </ul>
+                </li>
+
+                <li><a href="#">Endereço</a>
+                  <ul>
+                      <li><a href="{% url 'InterfaceWeb:criarEndereco' %}">Novo Endereço</a></li>
+                      <li><a href="{% url 'InterfaceWeb:buscaCepNumero' %}">Editar Endereço</a></li>
+                      <li><a href="{% url 'InterfaceWeb:buscaDeletarEndereco' %}">Excluir Endereço</a></li>
+                  </ul>
+                </li>
+
+                <li><a href="#">Fatura</a>
+                  <ul>
+                      <li><a href="{% url 'InterfaceWeb:listaFaturas' %}">Listar Faturas</a></li>
+                  </ul>
+                </li>
+                
+                <li>
+                  <a class="botoes-sair" href="{% url 'InterfaceWeb:login' %}">Sair</a>
+                </li>
+
+              </section>
+          </ul>
+      </nav>
+    </section>
+  </footer>
+	
+  <!-- header -->
+  <header>
+    <div class="intro-text">
+    </div>
+  </header>
+
+  <!-- footer -->
+  <footer>
+    <section class="footer-content">
+      <section class="address">
+        <h1>Endereço</h1>
+        <p>Rua Bancário Antônio Rosa da Silva, 202</p>
+        <p>Bancários, João Pessoa - PB, 58051-240</p>
+      </section>
+      <section class="social">
+        <h1>Contatos</h1>
+          <p>(83) 98666-3066</p>
+      </section>
+      <section class="about">
+        <h1>Instituto Federal da Paraíba</h1>
+        <p><img src="/static/img/IFPB.png" width="120" height="111"></p>
+      </section>
+    </section>
+    <section class="copyright-index">
+      <span>&copy; 2023 - Consumo Residencial</span>
+    </section>
+  </footer>
+</body>
+</html>

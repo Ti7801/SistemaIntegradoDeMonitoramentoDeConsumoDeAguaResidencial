@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitoramento do Consumo de  Água</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <!-- navegation -->
+  <footer>
+    <section class="footer-login">
+      <nav class="dp-menu">
+      </nav>
+    </section>
+  </footer>
+	
+  <form id="form-criacao" method="post" action=".">
+    <div class="formulario-central">
+        <table>
+            <div class="titulo-login"><h2 >LOGIN ADMINISTRADOR</h2></div>  
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+    </div>
+    <div class="butt">
+        <input class="butao-submit" type="submit" onclick="location.href = '{% url 'InterfaceWeb:registrar' %}'" value="Logar">
+        <input class="butao-submit" type="button"  onclick="location.href ='{% url 'InterfaceWeb:login' %}'" value="Cancelar">
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Endereço</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <footer>
+            <section class="footer-content-superior">
+                <nav class="dp-menu">
+                    <h1>Cadastrar Novo  Endereço</h1>
+                </nav>
+            </section>
+        </footer>
+
+        <form id="form-criacao" method="post" action=".">
+            <div class="formulario-centralizado">
+                <table>
+                    {% csrf_token %}
+                    {{ form.as_table}}
+                </table>
+            </div>
+            <div class="botoes">
+                <input class="butao-submit" type="submit" onclick="location.href = '{% url 'InterfaceWeb:inicio' %}' " value="Salvar">
+                <input class="butao-reset" type="reset" onclick="location.href = '{% url 'InterfaceWeb:inicio' %}' " value="Cancelar">
+            </div>
+        </form>
+
+        <footer>
+            <section class="footer-content-inferior">
+            </section>
+                <section class="copyright">
+                    <span>&copy; 2022 - Consumo Residencial</span>
+                </section>
+        </footer> 
+    </body>
+</html>
+
+

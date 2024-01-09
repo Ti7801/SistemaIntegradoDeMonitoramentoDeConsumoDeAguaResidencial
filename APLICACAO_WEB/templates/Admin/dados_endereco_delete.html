@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Endereço</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <footer>
+            <section class="footer-content-superior">
+                <nav class="dp-menu">
+                    <h1>Excluir Endereço</h1>
+                </nav>
+            </section>
+        </footer>
+
+        <form id="form-criacao" method="post" action=".">
+            <div class="formulario-centralizado">
+                <table>
+                    {% csrf_token %}
+                    <tr>
+                        <td></td>
+                    </tr>    
+                    <tr>
+                        <td><lable for="Cpf">CPF: </lable></td>
+                        <td><input type="text" readonly value="{{cpf}}" name="Cpf"></br></td>
+                    </tr> 
+                    <tr> 
+                        <td><lable for="Cidade"> CIDADE: </lable></td>
+                        <td><input type="text" readonly value="{{cidade}}" name="Cidade"></br></td>
+                    </tr> 
+                    <tr>
+                        <td><lable for="Bairro"> BAIRRO: </lable></td>
+                        <td><input type="text" readonly value="{{bairro}}" name="Bairro"></br></td>
+                    </tr> 
+                    <tr>
+                        <td><lable for="Rua"> RUA: </lable></td>
+                        <td><input type="text" readonly value="{{rua}}" name="Rua"></br></td>
+                    </tr> 
+                    <tr>
+                        <td><lable for="Numero"> NUMERO: </lable></td>
+                        <td><input type="text" readonly value="{{numero}}" name="Numero"></br></td>
+                    </tr> 
+                    <tr>
+                        <td><lable for="Complemento"> COMPLEMENTO: </lable></td>
+                        <td><input type="text" readonly value="{{complemento}}" name="Complemento"></br></td>
+                    </tr> 
+                    <tr>
+                        <td><lable for="Cep"> CEP: </lable> </td>
+                        <td><input type="text" readonly value="{{cep}}" name="Cep"></br></td>
+                    </tr> 
+                </table>
+            </div>
+
+            <div class="botoes">
+                <input class="butao-submit" type="submit" onclick="location.href= '{% url 'InterfaceWeb:inicio' %}' " value="Excluir">
+                <input class="butao-reset" type="reset" onclick="location.href = '{% url 'InterfaceWeb:buscaDeletarEndereco' %}' " value="Cancelar">
+            </div>
+        </form>
+        <footer>
+            <section class="footer-content-inferior">
+            </section>
+                <section class="copyright">
+                    <span>&copy; 2022 - Consumo Residencial</span>
+                </section>
+        </footer> 
+    </body>
+</html>

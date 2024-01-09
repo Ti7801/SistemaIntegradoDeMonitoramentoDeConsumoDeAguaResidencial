@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Apagar Cliente</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <footer>
+            <section class="footer-content-superior">
+                <nav class="dp-menu">
+                    <h1>Confirmação da Exclusão</h1>
+                </nav>
+            </section>
+        </footer>
+
+        
+        <br/>
+        <form id="form-criacao" action="." method="post">
+            <div class="formulario-centralizado">
+                <h2>Tem certeza que deseja apagar o cliente ' {{ object.nome }}' ?<h2>
+                {% csrf_token %}
+                <input type="submit" value="Sim, tenho certeza">
+                <input type="reset" onclick="location.href= '{% url 'InterfaceWeb:listaClientes' %}'" value="Cancelar">
+            </div>    
+        </form>
+
+        <footer>
+            <section class="footer-content-inferior">
+            </section>
+                <section class="copyright">
+                    <span>&copy; 2022 - Consumo Residencial</span>
+                </section>
+        </footer> 
+    </body>
+</html>

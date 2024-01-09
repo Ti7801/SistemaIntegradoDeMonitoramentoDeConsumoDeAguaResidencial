@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"> 
+    </head>
+    <body>
+        <footer>
+            <section class="footer-content-superior">
+                <nav class="dp-menu">
+                    <h1>Lista de Clientes</h1>
+                </nav>
+            </section>
+        </footer>
+
+        <div id="conjunto">
+            <form  action="?" method="GET">
+                <div class="formulario-busca-cliente">
+                    <lable for="nome"> Pesquisa: </lable> 
+                    <input type="text"  name="nome" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Digite o nome do cliente">
+                    <br/>
+                    <br/>
+                    <div class="botoes-busca">
+                        <input class="butao-submit" type="submit" value="Buscar" onclick="location.href = '{% url 'InterfaceWeb:listaClientes' %}'">
+                        <input class="butao-reset" type="reset" onclick="location.href='{% url 'InterfaceWeb:listaClientes' %}'" value="Limpar"> 
+                        <input class="butao-reset" type="reset" onclick="location.href ='{% url 'InterfaceWeb:inicio' %}'" value="Voltar" >
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </form>
+                <br/>
+                <br/>
+                <br/>
+                <div class="formulario-lista-cliente">
+                    <h2>Sem Clientes Cadastrados</h2>
+                    <ul>
+                        {% for  cliente in object_list %}
+                            <li> {{ cliente.nome }} - <a class="estilo" href= "{% url 'InterfaceWeb:editarCliente' pk=cliente.id_cliente %}">Editar Cliente</a>
+                            - <a class="estilo" href= "{% url 'InterfaceWeb:detalhes' pk=cliente.id_cliente %}">Visualizar Dados</a>
+                            - <a class="estilo" href= "{% url 'InterfaceWeb:deletarCliente' pk=cliente.id_cliente %}">Excluir Cliente</a>
+                            <br/>
+                            <br/>
+                            </li>
+                        {% endfor %}
+                    </ul>  
+                </div> 
+        </div>
+
+        <footer>
+            <section>
+            </section>
+                <section class="copyright">
+                    <span>&copy; 2022 - Consumo Residencial</span>
+                </section>
+        </footer> 
+    </body>
+</html>

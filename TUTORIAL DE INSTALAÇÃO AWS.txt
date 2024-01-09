@@ -1,0 +1,160 @@
+link do tutorial:
+
+https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/create-deploy-python-django.html
+
+
+
+Configurar um ambiente virtual Python e instalar o Django
+
+1 - Para configurar o ambiente virtual:
+
+
+C:\> virtualenv %HOMEPATH%\eb-virt
+
+Ative o ambiente virtual.
+
+C:\>%HOMEPATH%\eb-virt\Scripts\activate
+
+
+2 - Use pip para instalar o Django.
+
+pip install django==3.2.16
+
+
+
+3 - Criar um projeto Django
+
+django-admin startproject projeto
+
+
+3.5 CRIAR APP
+
+python manage.py startapp Administrador
+
+EXECUTAR 
+
+python manage.py runserver
+
+
+
+
+Configurar a aplicação Django para o Elastic Beanstalk
+
+pip freeze > requirements.txt
+
+4 - Crie um diretório chamado .ebextensions.
+
+mkdir .ebextensions
+
+
+5 - Adicionar em :  /projeto/.ebextensions/django.config
+
+option_settings:
+  aws:elasticbeanstalk:container:python:
+    WSGIPath: consumo.wsgi:application
+
+
+
+Implantar o site com a CLI do EB
+
+6 - Inicialize o repositório da EB CLI com o comando eb init:
+
+eb init -p python-3.7 projeto
+
+
+7 - Crie um ambiente e implante o aplicativo nele com eb create.
+
+
+eb create consumo-env ou eb create main-env
+
+
+8 - Quando o processo de criação do ambiente for concluído, localize o nome de domínio do seu novo ambiente executando eb status
+
+
+eb status 
+
+- pegue o CNAME: que aparecer
+
+APARECEU ESSE -> 
+
+main-env.eba-7puyppt2.us-west-2.elasticbeanstalk.com
+
+LINK UTILIZADO PARA ENTRAR NA APLICAÇÃO 
+
+ 
+
+9 - Abra o arquivo settings.py no diretório ebdjango. Localize a configuração ALLOWED_HOSTS e 
+adicione o nome de domínio do aplicativo que você encontrou na etapa anterior ao valor da configuração.
+ Se você não encontrar essa configuração no arquivo, adicione-a em uma nova linha.
+
+
+EM  SETTINGS FICOU 
+
+ALLOWED_HOSTS = ['main-env.eba-7puyppt2.us-west-2.elasticbeanstalk.com']
+
+10 - Salve o arquivo e, em seguida, implante o aplicativo executando eb deploy. Quando você executa eb deploy,
+ a EB CLI empacota o conteúdo do diretório do projeto e implanta-o em seu ambiente.
+
+
+eb deploy
+
+11 - Quando o processo de atualização do ambiente for concluído, abra o site com eb open.
+
+eb open
+
+
+12 - Para informar ao Django onde armazenar os arquivos estáticos, defina STATIC_ROOT em settings.py.
+
+exemplo ~/ebdjango/ebdjango/settings.py
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+
+OBS: LEMBRAR DE DEIXAR O FINAL DO ARQUIVO SETTINGS EXATAMENTE DESSE JEITO, SE NÃO, NÃO FUNCIONA.
+
+
+13 - Execute manage.py collectstatic para preencher o diretório static com os ativos estáticos (JavaScript, CSS e imagens) para o site de administração.
+
+
+eb deploy
+
+eb open
+
+
+
+Depois disso funcionou normalmente na nuvem.
+
+
+Para entrar na Aplicação agora, use :
+
+
+main-env.eba-7puyppt2.us-west-2.elasticbeanstalk.com
+
+
+
+
+FOI O ÚLTIMO QUE CONFIGUREI..... DEPOIS DESSE NÃO MEXI MAIS.... SE MEXER TENHO QUE ATUALIZAR O LINK.
+
+
+
+
+colocar na parte de aplicações web 
+
+
+
+
+
+
+parte de backend 
+
+colocar computação em nuvem dentro de backend
+
+
+e front end 
+
+
+
+

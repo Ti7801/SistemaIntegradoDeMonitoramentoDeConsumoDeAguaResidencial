@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"> 
+
+        <style>
+            tr { border: solid 1px;}
+            td { border: solid 1px; font-size: 20px;}
+            th { border: solid 1px;font-size: 20px;}
+            table{border: solid 1px; border-collapse: collapse;}
+        </style>
+    </head>
+    <body>
+        <footer>
+            <section class="footer-content-superior">
+                <nav class="dp-menu">
+                    <h1>Lista de Faturas</h1>
+                </nav>
+            </section>
+        </footer>
+
+        
+        <div id="conjunto">
+            <form action="?" method="GET">
+                <div class="formulario-fatura-busca">
+                    <h2>Buscar Fatura</h2>
+                    <table>
+                        <lable for="Cpf">CPF: </lable>
+                        <input type="text" name="Cpf" id="" value="{{ request.GET.cpf }}" class="p-1 border" autocomplete="off" placeholder="Digite CPF do Cliente">
+                        <br/>
+                        <br/>
+                        <lable for="Mes">Mês: </lable>
+                        <input type="text" name="Mes" id="" value="{{ request.GET.mes }}" class="p-1 border" autocomplete="off" placeholder="Digite o mês da Fatura" >
+                        <br/>
+                        <br/>
+                        <lable for="Ano">Ano: </lable>
+                        <input type="text" name="Ano" id="" value="{{ request.GET.ano }}" class="p-1 border" autocomplete="off" placeholder="Digite o ano da Fatura">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="botao-fatura">
+                            <input class="butao-submit" type="submit"  onclick="location.href = '{% url 'InterfaceWeb:listaFaturas' %}'" value="Buscar">
+                            <input class="butao-reset" type="reset" onclick="location.href='{% url 'InterfaceWeb:listaFaturas' %}'" value="Limpar"> 
+                            <input class="butao-reset" type="reset" onclick="location.href= '{% url 'InterfaceWeb:inicio' %}'" value="Voltar">
+                        </div>    
+                    </table>   
+                </div>    
+                <br/>
+                <br/>
+                <br/>        
+            </form>
+            <br/>
+            <br/>
+            <br/>
+
+            <div class="formulario-fatura-lista">
+                <h2>Faturas</h2>
+                <table style="border: solid 1px; border-collapse: separate;">
+                        <tr>
+                            <th>Mês</th>
+                            <th>Ano</th>
+                            <th>Valor a Pagar</th>
+                            <th>Fatura Paga</th>
+                            <th>Consumo Mensal</th>
+                            <th>Nome do Cliente</th>
+                        </tr>
+                    {% for  endereco in  object_list %}
+                        <tr>
+                            <td>{{endereco.mes}}</td>
+                            <td>{{endereco.ano}}</td>
+                            <td>{{endereco.valor_pagar}}</td>
+                            <td>{{endereco.fatura_paga}}</td>
+                            <td>{{endereco.consumo_mensal}}</td>
+                            <td>{{endereco.fatura_nome}}</td>
+                        </tr>           
+                    {% endfor %}
+                </table>
+            </div>    
+        </div>
+        <footer>
+            <section >
+            </section>
+                <section class="copyright">
+                    <span>&copy; 2022 - Consumo Residencial</span>
+                </section>
+        </footer> 
+    </body>
+</html>
