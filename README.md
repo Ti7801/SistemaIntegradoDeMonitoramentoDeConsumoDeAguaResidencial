@@ -52,9 +52,9 @@ Para validar a eficácia do sistema, o dispositivo foi instalado em um fluxo de 
 
 ### 📂 **Estrutura do Repositório**
 
-- `device/` 📟: Código e configurações para o ESP32 e o sensor de vazão YF-S201.
-- `webapp/` 🌐: Código da aplicação web desenvolvida em Django.
-- `docs/` 📑: Documentação do projeto, incluindo especificações técnicas e relatórios de teste.
+- [Device_code](https://github.com/Ti7801/SistemaIntegradoDeMonitoramentoDeConsumoDeAguaResidencial/tree/609e9c8fb474c2060b7c2885de116026bfcf6d58/CODIGO_PROTOTIPO_DE_MEDICAO/MONITORAMENTO_SENSOR_INTELIGENTE) 📟: Código e configurações para o ESP32 e o sensor de vazão YF-S201.
+- [Aplicação Web](https://github.com/Ti7801/SistemaIntegradoDeMonitoramentoDeConsumoDeAguaResidencial/tree/609e9c8fb474c2060b7c2885de116026bfcf6d58/APLICACAO_WEB) 🌐: Código da aplicação web desenvolvida em Django.
+- [Docs](https://repositorio.ifpb.edu.br/jspui/bitstream/177683/2926/1/Tiago%20Daltro%20Duarte%20-%20Sistema%20integrado%20de%20monitoramento%20de%20consumo%20de%20%C3%A1gua%20residencial%20-%20Copia.pdf) 📑: Documentação do projeto, incluindo especificações técnicas e relatórios de teste.
 
 ---
 
