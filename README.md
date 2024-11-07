@@ -8,11 +8,11 @@
 
 ```
 
-### 📖 **Sobre o Projeto**
+## 📖 **Sobre o Projeto**
 
 Este projeto propõe uma solução inovadora para o **monitoramento de consumo de água residencial**. Com um dispositivo medidor e uma aplicação web integrados, o sistema permite que consumidores e concessionárias acompanhem dados de uso de água em tempo real, oferecendo uma visão precisa do consumo e automatizando a geração de faturas.
 
-### 🚀 **Funcionalidades Principais**
+## 🚀 **Funcionalidades Principais**
 
 - **Monitoramento de Consumo em Tempo Real**: 
   - Utilizando um **sensor de vazão YF-S201** e um **microcontrolador ESP32** com conectividade Wi-Fi 📶, o dispositivo mede continuamente o fluxo de água.
@@ -25,7 +25,7 @@ Este projeto propõe uma solução inovadora para o **monitoramento de consumo d
 - **Geração de Faturas Automática** 💳:
   - A partir dos dados coletados, o sistema calcula o valor a ser pago mensalmente com base no consumo registrado, proporcionando precisão e transparência na cobrança.
 
-### 🔧 **Tecnologias e Ferramentas Utilizadas**
+## 🔧 **Tecnologias e Ferramentas Utilizadas**
 
 - **Dispositivo Medidor**:
   - **ESP32**: Microcontrolador com conectividade Wi-Fi para transmissão dos dados.
@@ -38,11 +38,45 @@ Este projeto propõe uma solução inovadora para o **monitoramento de consumo d
 - **Hospedagem**:
   - **Amazon Web Services (AWS)** 🌐: A aplicação foi implementada na infraestrutura de computação em nuvem da AWS, garantindo escalabilidade e segurança.
 
-### 🧪 **Processo de Testes**
+## 🧪 **Processo de Testes**
 
 Para validar a eficácia do sistema, o dispositivo foi instalado em um fluxo de água simulado, e as leituras foram monitoradas via aplicação web. Os dados de consumo foram atualizados em tempo real, e as faturas foram geradas automaticamente, confirmando a precisão e funcionalidade do sistema.
 
-### 📊 **Resultados Obtidos**
+
+## 🏆 **Metodologia e Resultados Obtidos**
+
+
+### 📸 **Captura de Tela do Trecho do Código do Firmware e Monitor Serial**
+
+Na figura é ilustrado um trecho do código do firmware do dispositivo de medição de consumo de água, juntamente com a ferramenta **Monitor Serial** disponibilizada no software ArduinoIDE. As mensagens de texto exibidas na figura foram enviadas pelo dispositivo de medição para logo mais serem enviadas para o Firebase e de lá para Aplicação Web. 👨‍💻💧
+
+![Captura de tela do Monitor Serial](FOTOS_RESULTADOS/terceiro_litro.jpeg)
+
+As mensagens mostradas indicam a leitura correta dos dados feita pelo dispositivo.
+
+
+
+
+
+### 🧩 **Modelagem de Dados do Projeto**
+
+O banco de dados elaborado possui quatro entidades: **cliente**, **fatura**, **endereço** e **administrador**.
+
+- **Administrador**: A entidade **administrador** possui os atributos `login` e `senha`. Ela representa os administradores da plataforma web desenvolvida, que possuem acesso a todas as funcionalidades do sistema. 🔐
+
+- **Cliente**: A entidade **cliente** possui os atributos `id_cliente`, `CPF`, `nome`, `nascimento`, `sexo`, `e-mail` e `telefone`. Ela representa os clientes da concessionária de água. 🚰 Não há cardinalidade entre a entidade **cliente** e a entidade **administrador**. No entanto, ao relacionar a entidade **cliente** com a entidade **endereço**, temos uma cardinalidade de (1, n), ou seja, um cliente pode ter no mínimo um endereço e no máximo vários endereços. 🏡
+
+- **Endereço**: A entidade **endereço** possui os atributos `id_endereço`, `cidade`, `bairro`, `rua`, `número`, `complemento`, `cep`, `cliente`, `consumo_total`, `consumo_ultimo_mes` e representa os endereços dos clientes cadastrados. A cardinalidade da entidade **endereço** em relação à entidade **cliente** é de (1, 1), ou seja, um endereço só pode estar relacionado a um único cliente. Contudo, quando observamos a relação da entidade **endereço** com a entidade **fatura**, a cardinalidade é de (1, n), onde um endereço pode ter no mínimo uma fatura e no máximo várias faturas. 🏠💡
+
+- **Fatura**: A entidade **fatura** possui os atributos `id_fatura`, `endereço`, `cliente`, `consumo_mensal`, `mes`, `ano`, `valor_pagar` e `fatura_paga`. A cardinalidade da entidade **fatura** em relação à entidade **endereço** é de (1, 1), ou seja, uma fatura só pode ter um único endereço. O atributo `consumo_mensal` representa o valor consumido de água por mês, e o atributo `valor_pagar` é o valor a ser pago pelo cliente. 💰💧
+
+
+![Modelo Conceitual do Sistema](FOTOS_RESULTADOS/brModelo.JPG)
+
+
+
+
+### 📊 **Conclusões**
 
 - 📈 **Monitoramento Eficiente**: O dispositivo é capaz de registrar o consumo de água e enviar as informações à nuvem sem interrupções, oferecendo dados confiáveis.
 - 📝 **Gestão Simplificada**: A aplicação web facilita a administração dos dados dos clientes e o cálculo de faturas, permitindo que concessionárias e consumidores acompanhem o uso de forma prática.
