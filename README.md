@@ -46,7 +46,7 @@ Para validar a eficácia do sistema, o dispositivo foi instalado em um fluxo de 
 ## 🏆 **Metodologia e Resultados Obtidos**
 
 
-### 📸 ** Código do Firmware e Monitor Serial**
+### 📸 **Código do Firmware e Monitor Serial**
 
 Na figura é ilustrado um trecho do código do firmware do dispositivo de medição de consumo de água, juntamente com a ferramenta **Monitor Serial** disponibilizada no software ArduinoIDE. As mensagens de texto exibidas na figura foram enviadas pelo dispositivo de medição para logo mais serem enviadas para o Firebase e de lá para Aplicação Web. 👨‍💻💧
 
@@ -82,6 +82,29 @@ Esse processo garante que o consumo de água de cada residência seja monitorado
 
 
 ![Dados de Consumo Persistidos no Firebase](FOTOS_RESULTADOS/FIREBASECONSUMO.JPG)
+
+
+## Interface Web
+
+### Login e Cadastro do Administrador da Aplicação
+
+Na figura abaixo, temos a primeira página da interface já hospedada no **AWS Elastic Beanstalk** 🌐, a página de **login** 🔑, onde é possível digitar o **ID** e a **senha** do administrador já cadastrado no sistema, para acessar a página principal da aplicação. O próprio sistema foi desenvolvido para já possuir um **administrador chefe** 👨‍💼, criado quando o sistema é inicializado pela primeira vez, capaz de criar outros administradores.
+
+![Login](FOTOS_RESULTADOS/LOGIN.JPG)
+
+Caso um administrador da concessionária não esteja cadastrado, é possível clicar no botão **Cadastrar** ➕, e a tela de login do administrador será apresentada. Este acesso, no entanto, estará disponível somente para o **administrador chefe** 👨‍💼, que será responsável por cadastrar outros administradores.
+
+![Login](FOTOS_RESULTADOS/paginaLOGINCADASTRO.JPG)
+
+
+Na figura abaixo é representado a tela para cadastro de novos administradores:
+
+![Login de Cadastro Administrador](FOTOS_RESULTADOS/CADASTRAR.JPG)
+
+
+
+
+
 
 
 ### 📊 **Conclusões**
