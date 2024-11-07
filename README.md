@@ -46,16 +46,13 @@ Para validar a eficácia do sistema, o dispositivo foi instalado em um fluxo de 
 ## 🏆 **Metodologia e Resultados Obtidos**
 
 
-### 📸 **Captura de Tela do Trecho do Código do Firmware e Monitor Serial**
+### 📸 ** Código do Firmware e Monitor Serial**
 
 Na figura é ilustrado um trecho do código do firmware do dispositivo de medição de consumo de água, juntamente com a ferramenta **Monitor Serial** disponibilizada no software ArduinoIDE. As mensagens de texto exibidas na figura foram enviadas pelo dispositivo de medição para logo mais serem enviadas para o Firebase e de lá para Aplicação Web. 👨‍💻💧
 
 ![Captura de tela do Monitor Serial](FOTOS_RESULTADOS/terceiro_litro.jpeg)
 
 As mensagens mostradas indicam a leitura correta dos dados feita pelo dispositivo.
-
-
-
 
 
 ### 🧩 **Modelagem de Dados do Projeto**
@@ -74,6 +71,17 @@ O banco de dados elaborado possui quatro entidades: **cliente**, **fatura**, **e
 ![Modelo Conceitual do Sistema](FOTOS_RESULTADOS/brModelo.JPG)
 
 
+
+## 📡 **Envio de Dados para a Plataforma Firebase**
+
+A cada novo litro consumido, o protótipo de medição envia o valor de consumo via **Wi-Fi** para a plataforma **Firebase**. 🌐💧 Dessa forma, o valor de consumo é persistido automaticamente no banco de dados criado na plataforma, sendo registrado no endereço composto por **CEP** e **número da residência**. 🏠🔢
+
+Este endereço foi adicionado no **Firebase** de maneira automática assim que foi registrado pelo **administrador** na interface web. 🔐💻
+
+Esse processo garante que o consumo de água de cada residência seja monitorado e armazenado em tempo real, proporcionando eficiência e precisão no controle de dados. 📊
+
+
+![Dados de Consumo Persistidos no Firebase](FOTOS_RESULTADOS/FIREBASECONSUMO.JPG)
 
 
 ### 📊 **Conclusões**
