@@ -94,17 +94,102 @@ Na figura abaixo, temos a primeira página da interface já hospedada no **AWS E
 
 Caso um administrador da concessionária não esteja cadastrado, é possível clicar no botão **Cadastrar** ➕, e a tela de login do administrador será apresentada. Este acesso, no entanto, estará disponível somente para o **administrador chefe** 👨‍💼, que será responsável por cadastrar outros administradores.
 
+
+
 ![Login](FOTOS_RESULTADOS/paginaLOGINCADASTRO.JPG)
 
 
 Na figura abaixo é representado a tela para cadastro de novos administradores:
+
+
 
 ![Login de Cadastro Administrador](FOTOS_RESULTADOS/CADASTRAR.JPG)
 
 
 
 
+Na Figura abaixo é represtada a página principal da aplicação na aba clientes:
 
+
+
+![Login de Cadastro Administrador](FOTOS_RESULTADOS/cliente.png)
+
+
+
+Na Figura abaixo é represtada a página principal da aplicação na aba Endereço:
+
+
+
+![Login de Cadastro Administrador](FOTOS_RESULTADOS/endereco.png)
+
+
+
+Na Figura abaixo é represtada a página principal da aplicação na aba de Faturas:
+
+
+
+![Login de Cadastro Administrador](FOTOS_RESULTADOS/fatura.png)
+
+
+Para Clientes temos:
+
+- Cadastrar Clientes:
+   
+  ![Login de Cadastro Administrador](FOTOS_RESULTADOS/CADASTRAR_CLIENTE.JPG)
+
+- Listar Clientes
+
+  ![Login de Cadastro Administrador](FOTOS_RESULTADOS/LISTAR_CLIENTE.JPG)
+
+  - Dentro de Listar Clientes temos a visualização dos dados do cliente:
+
+      ![Login de Cadastro Administrador](FOTOS_RESULTADOS/VISUALIZARDADOS_CLIENTE1.JPG)
+
+      OBS: Os dados são apenas ilustrativos. Esses dados não existem!
+
+Para Endereço temos:
+
+- Novo Endereço
+
+   ![Login de Cadastro Administrador](FOTOS_RESULTADOS/CADASTRAR_ENDERECO.JPG)
+
+- Editar Endereço
+
+  - 1ª Página
+    
+   ![Login de Cadastro Administrador](FOTOS_RESULTADOS/EDITAR_ENDERECO1.JPG)
+
+  - 2ª Página
+ 
+   ![Login de Cadastro Administrador](FOTOS_RESULTADOS/EDITAR_ENDERECO2.JPG)
+
+- Excluir Endereço
+  
+  - 1ª Página
+    
+   ![Login de Cadastro Administrador](FOTOS_RESULTADOS/EXCLUIR_ENDERECO1.JPG)
+
+   - 2ª Página
+
+   ![Login de Cadastro Administrador](FOTOS_RESULTADOS/EXCLUIR_ENDERECO2.JPG)
+
+
+  Para Faturas temos:
+
+   - Listar Faturas
+ 
+       - Sem Busca
+
+         ![Login de Cadastro Administrador](FOTOS_RESULTADOS/Lista_de_Faturas.JPG)
+
+      - Com Busca
+    
+        ![Login de Cadastro Administrador](FOTOS_RESULTADOS/FATURAS.JPG)
+
+
+Concretização da implantação da aplicação no AWS:
+
+  ![Login de Cadastro Administrador](FOTOS_RESULTADOS/ImplantouAmbienteAWS.JPG)
 
 
 ### 📊 **Conclusões**
